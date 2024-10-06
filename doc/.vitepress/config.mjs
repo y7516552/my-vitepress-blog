@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import path from 'node:path';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -37,5 +38,17 @@ export default defineConfig({
         second: "numeric",
       }
     },
+  },
+  vite: {
+    resolve: {
+        alias: { // 設定別名
+            '@': path.resolve(__dirname, '../'), // docs 當根目錄
+            '@vitepress': path.resolve(__dirname), // .vitepress 目錄
+            '@components': path.resolve(__dirname, '../', 'components'),
+            '@data': path.resolve(__dirname, '../', 'data'),
+            '@hooks': path.resolve(__dirname, '../', 'hooks'),
+            '@pages': path.resolve(__dirname, '../', 'pages')
+        }
+    }
   }
 })
