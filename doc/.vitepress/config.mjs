@@ -49,6 +49,7 @@ export default defineConfig({
             '@hooks': path.resolve(__dirname, '../', 'hooks'),
             '@pages': path.resolve(__dirname, '../', 'pages')
         }
-    }
+    },
+    base:'/y7516552.github.io/my-vitepress-blog/'
   }
 })
