@@ -48,7 +48,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          run: ls -a
           path: ./docs/.vitepress/dist
 
   # 部署工作
