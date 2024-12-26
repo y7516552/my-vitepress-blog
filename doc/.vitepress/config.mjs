@@ -1,16 +1,29 @@
 import { defineConfig } from 'vitepress'
 import path from 'node:path';
+import { getSidebar } from '../hooks/useGetSidebar';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  logo: '/',
   title: "Steven's blog",
   description: "Steven's life blog",
   base:'/my-vitepress-blog/',
+  rewrites: {
+    'pages/(.*)': '(.*)'
+  },
+  head: [
+    ['link', { rel: 'icon', href: './mika.ico' }],
+    [ 'viewport',{content:'width=device-width',initialScale:'1.0'}],
+  ],
+  lang: 'zh',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Code', link: '/code' },
+      { text: 'Life', link: '/life' },
+      { text: 'Fishing', link: '/fishing' },
+      // { text: 'Examples', link: '/markdown-examples' }
     ],
 
     sidebar: [
@@ -20,7 +33,19 @@ export default defineConfig({
           { text: 'Markdown Examples', link: '/markdown-examples' },
           { text: 'Runtime API Examples', link: '/api-examples' }
         ]
-      }
+      },
+      {
+        text: 'Code',
+        items: []
+      },
+      {
+        text: 'Life',
+        items: []
+      },
+      {
+        text: 'Fishing',
+        items: []
+      },
     ],
 
     socialLinks: [
@@ -40,6 +65,8 @@ export default defineConfig({
       }
     },
   },
+  appearance: 'dark',
+  lastUpdated: true,
   vite: {
     resolve: {
         alias: { // 設定別名
