@@ -2,9 +2,9 @@ import path from 'node:path';
 import fs from 'node:fs';
 import matter from 'gray-matter';
 
-import { DefaultTheme } from 'vitepress';
+// import { DefaultTheme } from 'vitepress';
 
-const PAGES_PATH = path.resolve(__dirname, '../pages'); // 把pages 設定成根目錄
+const PAGES_PATH = path.resolve(__dirname, '../../pages'); // 把pages 設定成根目錄
 const WHITE_LIST = ['index.md']; // 白名單，不需要顯示的文件或目錄
 
 // 判斷是否是資料夾

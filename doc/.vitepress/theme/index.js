@@ -17,6 +17,6 @@ export default {
   },
   enhanceApp({ app, router, siteData }) {
     // ...
-    app.component('defaultLayout',defaultLayout)
+    // app.component('defaultLayout',defaultLayout)
   },
 }

@@ -1,19 +1,40 @@
 ---
-layout: expandLayout
+# layout: expandLayout
+layout: home
 outline: deep
+
+hero:
+  name: "Steven's blog"
+  text: "Steven's life blog"
+  tagline: My great project tagline
+  actions:
+    - theme: brand
+      text: 開發雜記與分享
+      link: /article/code
+    - theme: alt
+      text: 生活
+      link: /article/life
+
+features:
+  - title: Feature A
+    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Feature B
+    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Feature C
+    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
-# Runtime API Examples
+# 首頁 
 
-This page demonstrates usage of some of the runtime APIs provided by VitePress.
+### 歡迎來到 菜比八前端工程師 Steven 的小天地
+這裡主要分享一些前端開發遇到的小問題和生活的分享
 
-The main `useData()` API can be used to access site, theme, and page data for the current page. It works in both `.md` and `.vue` files:
 
-```md
+
 <script setup>
 import { useData } from 'vitepress'
 
-const { theme, page, frontmatter } = useData()
+const { site, theme, page, frontmatter} = useData()
 </script>
 
 ## Results
@@ -24,27 +45,3 @@ const { theme, page, frontmatter } = useData()
 ### Page Data
 <pre>{{ page }}</pre>
 
-### Page Frontmatter
-<pre>{{ frontmatter }}</pre>
-```
-
-<script setup>
-import { useData } from 'vitepress'
-
-const { site, theme, page, frontmatter } = useData()
-</script>
-
-## Results
-
-### Theme Data
-<pre>{{ theme }}</pre>
-
-### Page Data
-<pre>{{ page }}</pre>
-
-### Page Frontmatter
-<pre>{{ frontmatter }}</pre>
-
-## More
-
-Check out the documentation for the [full list of runtime APIs](https://vitepress.dev/reference/runtime-api#usedata).

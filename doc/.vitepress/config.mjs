@@ -1,10 +1,13 @@
 import { defineConfig } from 'vitepress'
 import path from 'node:path';
-import { getSidebar } from '../hooks/useGetSidebar';
-
+import { getSidebar } from './hooks/useGetSidebar';
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  logo: '/',
+  logo:{
+    light:'./logo.svg',
+    dark:'./logo.svg',
+    alt:"Steven's blog"
+  } ,
   title: "Steven's blog",
   description: "Steven's life blog",
   base:'/my-vitepress-blog/',
@@ -20,33 +23,61 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Code', link: '/code' },
-      { text: 'Life', link: '/life' },
-      { text: 'Fishing', link: '/fishing' },
+      { text: 'Code', link: '/article/code' },
+      { text: 'Life', link: '/article/life' },
+      // { text: 'Fishing', link: '/article/fishing' },
       // { text: 'Examples', link: '/markdown-examples' }
     ],
 
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      },
-      {
-        text: 'Code',
-        items: []
-      },
-      {
-        text: 'Life',
-        items: []
-      },
-      {
-        text: 'Fishing',
-        items: []
-      },
-    ],
+    sidebar: {
+      '/':[
+        {
+          text: 'Home',
+          items: [
+            { text: 'Code', link: '/article/code' },
+            { text: 'Life', link: '/article/life' }
+          ]
+        }
+      ],
+      //
+      '/article/code/':[
+        {
+          text: 'Code',
+          items: [
+            {
+              text: 'Javascript',
+              items:await getSidebar('/article/code/javascript')
+            },
+            {
+              text: 'Css',
+              items:await getSidebar('/article/code/css')
+            },
+            {
+              text: 'Vue',
+              items:await getSidebar('/article/code/vue')
+            },
+          ]
+        }
+      ],
+      //
+      '/article/life/':[
+        {
+          text: 'Life',
+          items: [
+            { text: 'Index', link: '/life/' },
+          ]
+        }
+      ],
+      //
+      '/article/fishing/':[
+        {
+          text: 'Fishing',
+          items: [
+            { text: 'Index', link: '/fishing/' },
+          ]
+        }
+      ],
+    },
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
